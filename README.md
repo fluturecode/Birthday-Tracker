@@ -12,6 +12,7 @@ This app is a simple birthday tracker written using the MERN stack. Users should
 - `cd client && yarn install`
 - `cd ..` 
 - `touch .env && touch .gitignore`
+- yarn add mongoose
 
 Update your `.env` file so that it contains your unique MongoDB Atlas URI with the key `ATLAS_URI`. 
 
