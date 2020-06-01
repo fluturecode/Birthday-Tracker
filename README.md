@@ -9,11 +9,11 @@ This app is a simple birthday tracker written using the MERN stack. Users should
 - `git clone` this repo
 - `cd` into it.
 - `yarn install`
+- `yarn add mongoose`
 - `cd client && yarn install`
-- yarn add bootstrap react-router-dom 
+- `yarn add bootstrap react-router-dom` 
 - `cd ..` 
 - `touch .env && touch .gitignore`
-- yarn add mongoose
 
 Update your `.env` file so that it contains your unique MongoDB Atlas URI with the key `ATLAS_URI`. 
 
