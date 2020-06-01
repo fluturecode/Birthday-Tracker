@@ -25,7 +25,7 @@ You are creating a simple app that will help Wyncode keep track of the birthdays
 
 Your task is the following:
 
-Create a models directory and, within it, a `birthday.model.js` file.
+Create a server directory and, within it, a models directory and, within that, a `birthday.model.js` file.
 - Within `/server/models/birthday.model.js`:
 - Your app will need to keep track of four pieces of data: 
     - `username` (string)
@@ -35,7 +35,7 @@ Create a models directory and, within it, a `birthday.model.js` file.
 - All of these fields should be required in order for a birthday to save to the database. 
 - You should create a model and schema for your birthday object that reflects this. 
 
-Create a routes directory and, within it, a `/birthdays.js` file.
+Within your server directory, create a routes directory and, within that, a `/birthdays.js` file.
 Within `/birthdays.js`:
 - Create a route to a `/birthdays` endpoint that will accept a `GET` request. 
     - This `/birthdays` endpoint should query your database for all of the birthdays that currently exist, and return them as JSON. 
