@@ -1,6 +1,8 @@
-# Node / Create-React-App mashup
+# Birthday Tracker Coding Challenge
 
 Read the instructions thoroughly before starting your project.
+
+This app is a simple birthday tracker written using the MERN stack. Users should be able to view a list of all birthdays created, add a birthday to the list, edit a birthday from the list, and delete a birthday from the list. 
 
 ## Setup
 
@@ -8,60 +10,60 @@ Read the instructions thoroughly before starting your project.
 - `cd` into it.
 - `yarn install`
 - `cd client && yarn install`
+- `cd ..` 
+- `touch .env && touch .gitignore`
 
-## Available build commands
+Update your `.env` file so that it contains your unique MongoDB Atlas URI with the key `ATLAS_URI`. 
 
-- `yarn dev`: Runs BOTH your Express.JS and React developer environment locally at the same time. Any logs coming from Express will be prefaced with `[0]`, any logs from `create-react-app` will be prefaced with `[1]`.
-- `yarn server`: Runs JUST your Express.JS server.
-- `yarn client`: Runs JUST your front-end React app.
+- `yarn dev` to run your server-side and client-side servers
 
-Open [http://localhost:3000](http://localhost:3000) to view your local React app in the browser. The page will reload if you make edits.
+# Coding Challenge Instructions
 
-## To deploy
+You are creating a simple app that will help Wyncode keep track of the birthdays of its students and staff using the MERN stack. The project structure has been generated for you, packages that you will need have been installed, and Express boilerplate has been written within `server.js`.
 
-NOTE: Heroku specifically runs `npm start`, so don't remove that from your package.json file.
+Your task is the following:
 
-- `heroku create your-app-name`
-- `git push heroku master`
+Create a models directory and, within it, a `birthday.model.js` file.
+- Within `/server/models/birthday.model.js`:
+- Your app will need to keep track of four pieces of data: 
+    - `username` (string)
+    - `cohort_number` (string)
+    - `month` (string)
+    - `date` (string). 
+- You should create a model and schema for your birthday object that reflects this. 
 
-## Project Requirements
+Create a routes directory and, within it, a `/birthdays.js` file.
+Within `/birthdays.js`:
+- Create a route to a `/birthdays` endpoint that will accept a `GET` request. 
+    - This `/birthdays` endpoint should query your database for all of the birthdays that currently exist, and return them as JSON. 
+    - Include a `.catch` to display any error messages.
+- Create a route to a `/birthdays` endpoint that will accept a `POST` request. 
+    - This `/birthdays` endpoint should allow for the creation of a new Birthday, which should then be saved to your database. 
+    - Include a `.catch` to display any error messages.
+- Create a route to a `/birthdays/:id` endpoint that will accept a `GET` request. 
+    - This `/birthdays/:id` endpoint should query the database for the birthday with that particular id, and return it as JSON. 
+    - Include a `.catch` to display any error messages.
+- Create a route to a `/birthdays/:id` endpoint that will accept a `POST` request. 
+    - This `/birthdays/:id` endpoint will query the database for the birthday with that particular id, then should allow user changes into any of the database fields for a birthday to save to your database. 
+    - Include a `.catch` to display any error messages.
+- Create a route to a `/birthdays/:id` endpoint that will accept a `DELETE` request. 
+    - This `/birthdays/:id` endpoint will search for a birthday by its id and delete it from your database. 
+    - Include a `.catch` to display any error messages.
 
-- [ ] Your project should pull data from an API. There are lots of options [here](https://github.com/toddmotto/public-apis) and [here](https://market.mashape.com/).
-  - Avoid any APIs that require OAuth (we'll talk about that later).
-  - Many APIs require an API key. Just sign up for an account and attach the key to your URL. Please make sure not to share your secret keys in a public GitHub repo.
-  - Some APIs don't allow _Cross-Origin Resource Sharing_ (CORS), meaning you can't make AJAX requests to them. You can get around this by proxying your requests with your Express server.
-- [ ] Your project should render a list of data from the API.
-  - [ ] Your project should allow the list to be filtered or searched.
-- [ ] Your project should show details about a single resource when clicked.
-- [ ] Your project should look (really) pretty!
-- [ ] You and your team should employ good Git and GitHub collaboration practices.
-- [ ] Your project must have a README.md file explaining what the project does and why it matters. [Here's an example](https://github.com/codeforamerica/howto/blob/master/Good-READMEs.md) of a great README.md template.
 
-| Rubric Criterion                                                                         | Points |
-| ---------------------------------------------------------------------------------------- | ------ |
-| Ability to search or filter, use of React Router                                         | 10     |
-| Code formatting and quality: indentation, variable and file naming conventions, etc.     | 10     |
-| No unused variables or imports, compiler errors                                          | 10     |
-| Use of class components when state is needed and functional components when state is not | 10     |
-| Proper use of environment variables for API keys or CORS proxy if needed                 | 10     |
-| Overall look and feel of application, well organized CSS files                           | 10     |
-| Well written documentation                                                               | 10     |
-| Use of GitHub issues, branches and commit messages                                       | 10     |
-| Look and feel of demo slide deck                                                         | 10     |
-| Ability to explain code decisions in demo                                                | 10     |
-| Ability to defend code decisions in response to panel questions                          | 10     |
-
-## Bonus
-
-- Fanciful animations and transitions
-- Incorporate multiple APIs into a single app
-
-## Demo Requirements
-
-Create a slide deck for the technical panel. (Here's an [example](https://docs.google.com/presentation/d/15rfR-S5qAlzx4rHwBp_kJOlu0nQ7hcZOruTwbH6zRvQ/edit?usp=sharing).)
-
-- It should focus on _how_ you built the app.
-- Include code snippets with brief explanations. Or, specific references to the location of the code in your GitHub repo.
-- It should emphasize your technical setbacks and solutions.
-- Get straight to the point.
-- Be prepared to answer questions.
+Within `/client/src`
+- Your app should have a components directory with the following components: `Navbar.js`, `CreateBirthday.js`, `EditBirthday.js`, and `BirthdaysList.js`.
+- Your navbar component should allow for client-side navigation between components.
+- Users should be able to view a completed list of all birthdays at Wyncode Academy from their BirthdaysList component. 
+    - This should be the default view of your app. 
+    - The completed list of all birthdays should come from your back end end point, which in turn pulls data from your database.
+- A link on your navbar should take users to a different component that contains a form for users to create a new birthday log. 
+- When a user creates a new birthday log, it should be saved to your database, and your user should be taken back to the list of all birthdays.
+    - This should also force an automatic page reload so that the new birthday that was created also displays. 
+- Each birthday log should contain an edit link and a delete link. 
+- Clicking on the edit link should take you to a component that contains a form with the data about the birthday that you are editing. 
+    - When you click submit, you should be taken back to the list of all birthdays. 
+    - The birthday whose data you edited should be udpated to reflect the changes you made. 
+- Clicking the delete link should delete the birthday from your database. 
+    - You should remain on the list of all birthdays. 
+    - The birthday whose delete link you clicked should no longer appear there. 
