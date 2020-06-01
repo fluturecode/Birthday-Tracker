@@ -10,6 +10,7 @@ This app is a simple birthday tracker written using the MERN stack. Users should
 - `cd` into it.
 - `yarn install`
 - `cd client && yarn install`
+- yarn add bootstrap react-router-dom 
 - `cd ..` 
 - `touch .env && touch .gitignore`
 - yarn add mongoose
