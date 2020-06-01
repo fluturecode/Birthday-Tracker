@@ -31,6 +31,7 @@ Create a models directory and, within it, a `birthday.model.js` file.
     - `cohort_number` (string)
     - `month` (string)
     - `date` (string). 
+- All of these fields should be required in order for a birthday to save to the database. 
 - You should create a model and schema for your birthday object that reflects this. 
 
 Create a routes directory and, within it, a `/birthdays.js` file.
