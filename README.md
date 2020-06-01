@@ -6,7 +6,7 @@ This app is a simple birthday tracker written using the MERN stack. Users should
 
 ## Setup
 
-- `git clone` this repo
+- Click the 'Use this template` button on this repo 
 - `cd` into it.
 - `yarn install`
 - `yarn add mongoose`
