@@ -46,7 +46,7 @@ Within `/birthdays.js`:
 - Create a route to a `/birthdays/:id` endpoint that will accept a `GET` request.
   - This `/birthdays/:id` endpoint should query the database for the birthday with that particular id, and return it as JSON.
   - Include a `.catch` to display any error messages.
-- Create a route to a `/birthdays/:id` endpoint that will accept a `POST` request.
+- Create a route to a `/birthdays/:id` endpoint that will accept a `PUT` request.
   - This `/birthdays/:id` endpoint will query the database for the birthday with that particular id, then should allow user changes into any of the database fields for a birthday to save to your database.
   - Include a `.catch` to display any error messages.
 - Create a route to a `/birthdays/:id` endpoint that will accept a `DELETE` request.
