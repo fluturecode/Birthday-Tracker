@@ -22,7 +22,7 @@ const BirthdayList = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/birthdays/')
+      .get('/birthdays')
       .then((response) => {
         setBirthdays(response.data);
       })
@@ -32,9 +32,7 @@ const BirthdayList = () => {
   }, []);
 
   const deleteBirthday = (id) => {
-    axios
-      .delete('http://localhost:5000/birthdays/' + id)
-      .then((res) => console.log(res.data));
+    axios.delete('/birthdays' + id).then((res) => console.log(res.data));
     setBirthdays(birthdays.filter((el) => el._id !== id));
   };
 

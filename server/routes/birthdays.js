@@ -3,7 +3,7 @@ let Birthday = require('../models/birthday.model');
 
 router.route('/birthdays').get((req, res) => {
   Birthday.find()
-    .then((birthdays) => res.json(exercises))
+    .then((birthdays) => res.json(birthdays))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 

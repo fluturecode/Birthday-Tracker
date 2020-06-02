@@ -34,9 +34,7 @@ const CreateBirthday = () => {
       date: date
     };
     console.log(birthday);
-    axios
-      .post('http://localhost:5000/birthdays/add', birthday)
-      .then((res) => console.log(res.data));
+    axios.post('/birthdays/add', birthday).then((res) => console.log(res.data));
     history.push('/');
   };
 

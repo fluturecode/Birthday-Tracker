@@ -11,7 +11,7 @@ const EditBirthday = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/birthdays/' + props.match.params.id)
+      .get('/birthdays/' + props.match.params.id)
       .then((response) => {
         setUsername(response.data.username);
         setCohort_number(response.data.cohort_number);
@@ -50,10 +50,7 @@ const EditBirthday = (props) => {
     };
     console.log(birthday);
     axios
-      .post(
-        'http://localhost:5000/birthdays/update/' + props.match.params.id,
-        birthday
-      )
+      .post('/birthdays/update/' + props.match.params.id, birthday)
       .then((res) => console.log(res.data));
     history.push('/');
   };
