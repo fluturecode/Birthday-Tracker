@@ -1,6 +1,7 @@
 /* these lines load the libraries and create variables that give us access to all
 of the methods that are built into each library */
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const birthdayRouter = require('./server/routes/birthdays');
