@@ -3,11 +3,11 @@ let Birthday = require('../models/birthday.model');
 
 router.route('/birthdays').get((req, res) => {
   Birthday.find()
-    .then((birthdays) => res.json(exercises))
+    .then((birthdays) => res.json(birthdays))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route('/birthday/add').post((req, res) => {
+router.route('/birthdays/').post((req, res) => {
   const username = req.body.username;
   const cohort_number = req.body.cohort_number;
   const month = req.body.month;
@@ -32,7 +32,7 @@ router.route('/birthdays/:id').get((req, res) => {
     .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route('/birthdays/update/:id').put((req, res) => {
+router.route('/birthdays/:id').post((req, res) => {
   Birthday.findById(req.params.id)
     .then((birthday) => {
       birthday.username = req.body.username;

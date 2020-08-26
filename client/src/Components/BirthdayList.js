@@ -2,23 +2,28 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const BirthdayList = () => {
-  const [birthdays, setBirthdays] = useState(['']);
-
-  const Birthday = (props) => (
-    <tr>
-      <td>{props.birthday.username}</td>
-      <td>{props.birthday.cohort_number}</td>
-      <td>{props.birthday.month}</td>
-      <td>{props.birthday.date}</td>
-      <>
-        <Link to={'/edit/' + props.birthday._id}>edit</Link> | onClick=
-        {() => {
+const Birthday = (props) => (
+  <tr>
+    <td>{props.birthday.username}</td>
+    <td>{props.birthday.cohort_number}</td>
+    <td>{props.birthday.month}</td>
+    <td>{props.birthday.date}</td>
+    <td>
+      <Link to={'/edit/' + props.birthday._id}>edit | </Link>
+      <a
+        href="#"
+        onClick={() => {
           props.deleteBirthday(props.birthday._id);
         }}
-      </>
-    </tr>
-  );
+      >
+        delete
+      </a>
+    </td>
+  </tr>
+);
+
+const BirthdayList = () => {
+  const [birthdays, setBirthdays] = useState(['']);
 
   useEffect(() => {
     axios
