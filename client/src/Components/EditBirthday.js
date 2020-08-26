@@ -50,17 +50,23 @@ const EditBirthday = (props) => {
     };
     console.log(birthday);
     axios
+<<<<<<< HEAD
       .post('/birthdays/update/' + props.match.params.id, birthday)
+=======
+      .post(
+        'http://localhost:5000/birthdays/' + props.match.params.id,
+        birthday
+      )
+>>>>>>> enhancement-13-liz-birthday-tracker
       .then((res) => console.log(res.data));
     history.push('/');
   };
 
   return (
     <div>
-      <h3>Add Your Birthday</h3>
+      <h3>Edit Your Birthday</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label>Username: </label>
           <label>Username: </label>
           <input
             type="text"
@@ -102,7 +108,7 @@ const EditBirthday = (props) => {
         <div clasName="form-group">
           <input
             type="submit"
-            value="Edit Exercise Log"
+            value="Edit Birthday Log"
             className="btn btn-primary"
           />
         </div>
