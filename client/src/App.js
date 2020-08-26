@@ -8,6 +8,7 @@ import CreateBirthday from './Components/CreateBirthday';
 
 function App() {
   return (
+    // When you edit or delete a birthday, the page will be reloaded with the updated data
     <Router forceRefresh={true}>
       <div className="container">
         <Navbar />

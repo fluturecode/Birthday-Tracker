@@ -1,6 +1,7 @@
 /* these lines load the libraries and create variables that give us access to all
 of the methods that are built into each library */
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const birthdayRouter = require('./server/routes/birthdays');
@@ -41,6 +42,15 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', (request, response) => {
+    response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
 // what does this do?
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

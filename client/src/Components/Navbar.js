@@ -18,7 +18,7 @@ const Navbar = () => {
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
             <Link to="/" className="nav-link">
-              All Birthdays
+              Birthdays
             </Link>
           </li>
           <li className="navbar-item">

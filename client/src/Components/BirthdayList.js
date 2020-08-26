@@ -2,27 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const Birthday = (props) => (
+  <tr>
+    <td>{props.birthday.username}</td>
+    <td>{props.birthday.cohort_number}</td>
+    <td>{props.birthday.month}</td>
+    <td>{props.birthday.date}</td>
+    <td>
+      <Link to={'/edit/' + props.birthday._id}>edit | </Link>
+      <a
+        href="#"
+        onClick={() => {
+          props.deleteBirthday(props.birthday._id);
+        }}
+      >
+        delete
+      </a>
+    </td>
+  </tr>
+);
+
 const BirthdayList = () => {
   const [birthdays, setBirthdays] = useState(['']);
 
-  const Birthday = (props) => (
-    <tr>
-      <td>{props.birthday.username}</td>
-      <td>{props.birthday.cohort_number}</td>
-      <td>{props.birthday.month}</td>
-      <td>{props.birthday.date}</td>
-      <>
-        <Link to={'/edit/' + props.birthday._id}>edit</Link> | onClick=
-        {() => {
-          props.deleteBirthday(props.birthday._id);
-        }}
-      </>
-    </tr>
-  );
-
   useEffect(() => {
     axios
-      .get('http://localhost:5000/birthdays/')
+      .get('/birthdays')
       .then((response) => {
         setBirthdays(response.data);
       })
@@ -32,9 +37,7 @@ const BirthdayList = () => {
   }, []);
 
   const deleteBirthday = (id) => {
-    axios
-      .delete('http://localhost:5000/birthdays/' + id)
-      .then((res) => console.log(res.data));
+    axios.delete('/birthdays' + id).then((res) => console.log(res.data));
     setBirthdays(birthdays.filter((el) => el._id !== id));
   };
 

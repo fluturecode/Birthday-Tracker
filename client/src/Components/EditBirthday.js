@@ -11,7 +11,7 @@ const EditBirthday = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/birthdays/' + props.match.params.id)
+      .get('/birthdays/' + props.match.params.id)
       .then((response) => {
         setUsername(response.data.username);
         setCohort_number(response.data.cohort_number);
@@ -50,8 +50,9 @@ const EditBirthday = (props) => {
     };
     console.log(birthday);
     axios
+      .post('/birthdays/' + props.match.params.id, birthday)
       .post(
-        'http://localhost:5000/birthdays/update/' + props.match.params.id,
+        'http://localhost:5000/birthdays/' + props.match.params.id,
         birthday
       )
       .then((res) => console.log(res.data));
@@ -60,10 +61,9 @@ const EditBirthday = (props) => {
 
   return (
     <div>
-      <h3>Add Your Birthday</h3>
+      <h3>Edit Birthday Log</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label>Username: </label>
           <label>Username: </label>
           <input
             type="text"
@@ -105,7 +105,7 @@ const EditBirthday = (props) => {
         <div clasName="form-group">
           <input
             type="submit"
-            value="Edit Exercise Log"
+            value="Edit Birthday Log"
             className="btn btn-primary"
           />
         </div>
