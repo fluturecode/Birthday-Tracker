@@ -61,7 +61,7 @@ const EditBirthday = (props) => {
 
   return (
     <div>
-      <h3>Edit Your Birthday</h3>
+      <h3>Edit Birthday Log</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <label>Username: </label>
