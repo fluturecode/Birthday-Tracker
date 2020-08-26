@@ -50,14 +50,11 @@ const EditBirthday = (props) => {
     };
     console.log(birthday);
     axios
-<<<<<<< HEAD
-      .post('/birthdays/update/' + props.match.params.id, birthday)
-=======
+      .post('/birthdays/' + props.match.params.id, birthday)
       .post(
         'http://localhost:5000/birthdays/' + props.match.params.id,
         birthday
       )
->>>>>>> enhancement-13-liz-birthday-tracker
       .then((res) => console.log(res.data));
     history.push('/');
   };
