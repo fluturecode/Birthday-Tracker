@@ -48,9 +48,8 @@ const EditBirthday = (props) => {
       month: month,
       date: date
     };
-    console.log(birthday);
+
     axios
-      .post('/birthdays/' + props.match.params.id, birthday)
       .post(
         'http://localhost:5000/birthdays/' + props.match.params.id,
         birthday
